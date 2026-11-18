@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Evergreen NC Manager</title>
+  <meta name="theme-color" content="#1a241b">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/prrSmkWj/manusk.png">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/prrSmkWj/manusk.png">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background-color: #121212; }
+    iframe { width: 100%; height: 100%; border: none; display: block; }
+  </style>
+</head>
+<body>
+  <iframe id="appFrame" src="https://script.google.com/macros/s/AKfycbwPZxe4oNSXjUUxeH1dT-YLBjw3XIH4uzdh_u3Xh0CgnyDtcbITtlJaEoH6_Qxa7F8T/exec" allow="geolocation; microphone; camera"></iframe>
+
+  <script>
+    // URL parameters (?ids=NC-101) තිබේ නම් ඒවා iframe එකට යොමු කිරීම
+    if (window.location.search) {
+      document.getElementById('appFrame').src += window.location.search;
+    }
+
+    // Service Worker ලියාපදිංචි කිරීම (Chrome Install බොත්තම සක්‍රීය වීමට අත්‍යවශ්‍ය වේ)
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
